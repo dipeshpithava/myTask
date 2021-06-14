@@ -1,0 +1,19 @@
+apiVersion: apps/v1 # for versions before 1.9.0 use apps/v1beta2
+kind: Deployment
+metadata:
+  name: go-api
+spec:
+  selector:
+    matchLabels:
+      app: myapi
+  replicas: 2 # tells deployment to run 2 pods matching the template
+  template:
+    metadata:
+      labels:
+  app: myapi
+    spec:
+      containers:
+      - name: myapi
+        image: dipeshpithwaabfl/mytask:latest
+        ports:
+  - containerPort: 80
